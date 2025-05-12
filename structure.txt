@@ -1,0 +1,16 @@
+MCP-Server/
+├── client/                     # Command-line client
+│   ├── index.js
+│   ├── package.json
+│   └── .env
+├── server/
+│   ├── index.js             # Main server
+│   ├── mcp.tool.js          # Twitter post tool
+│   ├── package.json
+│   ├── .env
+│   └──uploads/
+│       ├──1.jpg
+│   └── public/              # Web-based client
+│       ├── index.html
+│       ├── styles.css
+│       └── script.js
