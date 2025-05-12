@@ -7,7 +7,7 @@ const imageInput = document.getElementById("image-input");
 const status = document.getElementById("status");
 const loading = document.getElementById("loading");
 
-const eventSource = new EventSource("http://localhost:3001/sse");
+const eventSource = new EventSource("https://mcp-chat-box.onrender.com/sse");
 
 eventSource.onopen = () => {
     status.textContent = "Connected to MCP server";
@@ -25,7 +25,7 @@ eventSource.onmessage = (event) => {
 
 async function fetchTools(attempt = 1, maxAttempts = 3) {
     try {
-        const response = await fetch("http://localhost:3001/tools");
+        const response = await fetch("https://mcp-chat-box.onrender.com/tools");
         if (response.ok) {
             tools = await response.json();
             console.log("Tools fetched successfully:", tools);
@@ -138,7 +138,7 @@ async function processMessage(message, imageFile) {
             try {
                 const formData = new FormData();
                 formData.append("image", imageFile);
-                const uploadResponse = await fetch("http://localhost:3001/upload-image", {
+                const uploadResponse = await fetch("https://mcp-chat-box.onrender.com/upload-image", {
                     method: "POST",
                     body: formData,
                 });
@@ -196,7 +196,7 @@ async function processMessage(message, imageFile) {
     // Fallback to Gemini API for non-tool queries
     try {
         status.textContent = "Waiting for AI response...";
-        const response = await fetch("http://localhost:3001/gemini", {
+        const response = await fetch("https://mcp-chat-box.onrender.com/gemini", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -244,7 +244,7 @@ async function processMessage(message, imageFile) {
 
 async function callTool(name, args) {
     console.log("Calling tool:", { name, args });
-    const response = await fetch("http://localhost:3001/call-tool", {
+    const response = await fetch("https://mcp-chat-box.onrender.com/call-tool", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, arguments: args }),

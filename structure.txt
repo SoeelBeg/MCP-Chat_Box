@@ -1,4 +1,4 @@
-MCP-Server/
+MCP-Chat_Box/
 ├── client/                     # Command-line client
 │   ├── index.js
 │   ├── package.json
@@ -14,3 +14,8 @@ MCP-Server/
 │       ├── index.html
 │       ├── styles.css
 │       └── script.js
+├── .gitignore
+├── Readme.md
+├── .vscode
+
+
